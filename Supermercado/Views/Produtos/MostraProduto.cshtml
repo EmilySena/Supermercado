@@ -1,0 +1,11 @@
+﻿@model Supermercado.Models.Produto
+@{
+    ViewBag.Title = Model.Nome;
+}
+
+<h2>@Model.Nome</h2>
+<em>@Model.Preco - @Html.ActionLink(Model.Categoria, "MostraCategoria", "Produtos", new { @categoria = Model.Categoria }, null)</em>
+<div>
+    @Model.Marca
+</div>
+@Html.ActionLink("Comprar", "Cadastro", "Pessoa")

@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Supermercado.Models.Produto>
+@{
+    ViewBag.Title = "TodosOsProdutos";
+}
+
+<h2>Todos os Produtos</h2>
+<div>
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>
+                @Html.ActionLink(item.Nome, "MostraProduto", "Produtos", new
+                {
+                    @codigo = item.Codigo,
+                    @categoria = item.Categoria.ToLower(),
+                    @nome = item.Nome.ToLower(),
+                    @marca= item.Marca.ToLower()
+                }, null)
+                <em>@Html.DisplayFor(modelItem => item.Categoria)</em>
+                <b>@Html.DisplayFor(modelItem => item.Preco)</b>
+            </li>
+        }
+    </ul>
+</div>
+
